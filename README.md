@@ -3,13 +3,13 @@
 ### Requirement
 JDK version Required : JDK 8
 
-##caveats
+## caveats
 In open web api(https://openweathermap.org/weather-conditions) there is no Sunny weather condition due to this ,
 I have added a condition to check if the weather is > than 20 C and weather is "clear" I am considering as sunny.
 Also the API used provides weather for every 3 hours and we are checking in a day if this temp reaches that threshold at any point.
 For Temp check I am using average instead of max just as a personal preference.
 
-##design
+## design
 we are using observer pattern to have a API call and check for changes and notify the display unit.
 This will allow us to call display unit only when there is a change in some value .We can add more display/processing functions later by adding an observer.
 we are scheduling the thread run every X secs( configurable in properties file ) to call API and check for the response.
@@ -17,7 +17,7 @@ If the response is different from older response then we notify observers with r
 The observer will decode the response and take action.
 
 
-##config
+## config
 WeatherAppConfig.properties holds all the config for the app ,here is the below description for each .
 <ul>
 <li>language -> language for resource bundle ,at the moment only default bundle has been kept .Later point more languages can be added and configured via this </li>
